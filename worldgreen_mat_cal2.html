@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://gi.esmplus.com/rott7021/mat_cal/worldgreen_mat_cal2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"></head>
+<body>
+<div class="Cal_Group" style="margin: 5 auto; width:80%; ">
+  <h2>(주)월드그린 매트크기 계산기</h2>
+  
+  <div class="Cal_Size">
+    <label for="Mat_Width">가로길이 (cm):</label>
+    <input type="number" id="Mat_Width" min="0" value="0">
+  &nbsp;</div>
+  
+  <div class="input_size">
+    <label for="Mat_Height">세로길이 (cm):</label>
+    <input type="number" id="Mat_Height" min="0" value="0">
+  &nbsp;</div>
+  
+  <button class="Cal_btn" onclick="Mat_Size_Cal()">사이즈 수량변환</button>
+  
+  <div class="result">
+    <p>입력 수량 <span id="quantity">0</span>개(1장 기준) 입니다.</p>
+  </div>
+
+</div>
+
+<script>
+function Mat_Size_Cal() {
+  var width = parseFloat(document.getElementById('Mat_Width').value);
+  var height = parseFloat(document.getElementById('Mat_Height').value);
+
+  if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+    alert("올바른 길이를 입력해주세요.");
+    return;
+  }
+  
+  // 주문해야 되는 수량 계산식 (소수점 이하 수량을 올림 처리)
+  var quantity = Math.ceil(width * height * 0.01);
+  
+  // 가격 계산(지금은 쓰지 않습니다.)
+  var price = quantity * 700;
+
+  document.getElementById('quantity').textContent = quantity;
+  document.getElementById('price').textContent = price;
+}
+   //*위 스크립트의 저작권은 (주)월드그린에 있으며 무단 도용 시 법적 책임을 물을 수 있습니다.*//
+</script>
+
+</body></html>
